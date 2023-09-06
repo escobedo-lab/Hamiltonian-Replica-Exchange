@@ -1,0 +1,62 @@
+#########################################################
+#LAMMPS SCRIPT TO RUN high PAG concentrated SIMULATIONS
+#LAST UPDATED: 9/6/2023
+#
+#########################################################
+
+
+units	real
+dimension	3
+boundary p p p
+
+atom_style	full
+
+
+pair_style  lj/cut/coul/cut 12 12
+
+pair_modify tail yes
+pair_modify mix geometric
+bond_style harmonic
+angle_style harmonic
+dihedral_style opls 
+improper_style harmonic
+#improper_coeff 1 500.0 109.5
+
+special_bonds lj/coul 0 0 0.5
+
+read_data	temp1.data
+
+improper_coeff 1 300.0 109.5
+
+# PAIR COEFF BETWEEN F and H atoms- NOTE: ATOM TYPE IDs depends on the input data file
+pair_coeff 2    12      0.03    2.716
+pair_coeff 7    12      0.03    2.716
+pair_coeff 9    12      0.03    2.716
+
+
+neighbor    1.0 bin
+neigh_modify every 1 delay 0 check yes
+
+#ThermoData
+thermo	5000
+thermo_style	custom step etotal ke temp pe density press
+
+
+minimize 1.0e-4 1.0e-6 100000 100000
+
+velocity 	all create 1000.0 787249 dist gaussian
+
+
+timestep 1.0
+
+fix 10 all momentum 5000 linear 1 1 1
+
+fix 4 all npt temp 600.0 600.0 $(100.0*dt) iso 1.0 1.0 $(1000.0*dt)
+#restart 50000   restart3        restart4
+
+
+run 1000000
+write_data temp2.data
+
+
+
