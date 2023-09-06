@@ -10,5 +10,5 @@ The following files are provided:
 	Sequence for running the LAMMPS scripts for high PAG simulations:in.adapt->in.startljcoul->in.final
 
 More details on the Metropolis acceptance, OPLS-AA forcefield parameters, and simulation protocols can be
-found in the manuscript titled (under review): Atomistic modeling approach for predicting association of photoacid 
-generators in extreme unltraviolet polymeric photoresists 
+found in the manuscript titled: Atomistic modeling approach for predicting association of photoacid 
+generators in extreme unltraviolet polymeric photoresists (under review)
