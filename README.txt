@@ -10,6 +10,6 @@ The following files are provided:
 (3) LAMMPS scripts to run high PAG concentration simulations. 
 	Sequence for running the LAMMPS scripts for high PAG simulations:in.adapt->in.startljcoul->in.final
 
-More details on the Metropolis acceptance, OPLS-AA forcefield parameters, and simulation protocols can be
-found in the manuscript titled: Atomistic modeling approach for predicting association of photoacid 
-generators in extreme unltraviolet polymeric photoresists (under review)
+All simulations were performed using LAMMPS 29th September 2021 version. More details on the Metropolis acceptance, OPLS-AA forcefield parameters, and simulation
+protocols can be found in the manuscript titled: Atomistic modeling approach for predicting association of photoacid generators in extreme unltraviolet polymeric 
+photoresists (under review)
